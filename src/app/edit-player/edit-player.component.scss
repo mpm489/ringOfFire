@@ -1,0 +1,50 @@
+.select-img {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.selected {
+      border-color: blue;
+    }
+  }
+}
+
+.player {
+  background-color: orange;
+  width: 210px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+
+  span {
+    font-size: 16px;
+    padding: 8px;
+    margin-left: 8px;
+
+  }
+
+
+  img {
+
+    object-fit: cover;
+    border-radius: 100%;
+
+    width: 35px;
+    height: 35px;
+
+  }
+}

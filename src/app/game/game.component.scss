@@ -1,0 +1,197 @@
+@import '../../styles.scss';
+
+
+.field {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/img/board.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include center-flex;
+}
+
+.card-stack {
+    position: relative;
+
+    img {
+        width: 120px;
+        position: absolute;
+
+        @media (max-width: 720px) {
+            width: 84px;
+        }
+    }
+}
+
+.top-card {
+    cursor: pointer;
+    transition: all 120ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1) translateY(-10px);
+    }
+}
+
+.played-card {
+    right: 25px;
+    transform: scale(1.3) translateX(150px) translateY(-180px) rotate(-10deg);
+
+
+}
+
+.pick-card {
+    animation: pick-card-animation 1s ease-in-out;
+    transform: scale(1.3) translateX(150px) translateY(-180px) rotate(-10deg);
+
+}
+
+@keyframes pick-card-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.7);
+    }
+
+    60% {
+        transform: scale(1.7);
+    }
+
+    100% {
+        transform: scale(1.3) translateX(150px) translateY(-180px) rotate(-10deg);
+
+    }
+
+}
+
+.position {
+    position: absolute;
+    right: 0;
+
+    @media (max-width: 720px) {
+        left: 16px;
+    }
+
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+
+    @media (max-width: 720px) {
+        right: 16px;
+        bottom: 16px;
+    }
+
+
+}
+
+.warning-message {
+    @include center-flex;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    color: red;
+    font-weight: bold;
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    text-align: center;
+
+    @media (max-width: 720px) {
+        width: 350px;
+        height: 200px;
+        font-size: 0.9rem;
+
+
+    }
+}
+
+.warning {
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    @include center-flex;
+}
+
+.game-info {
+    position: absolute;
+    bottom: 16px;
+    left: 100px;
+    right: 100px;
+
+    @media (max-width: 720px) {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        min-height: 150px;
+    }
+
+}
+
+app-player {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
+.game-over {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -100%;
+    animation: waterfall 3s ease-in-out forwards;
+   
+}
+
+@keyframes waterfall {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+.btn {
+    animation: slideIn 1s ease-out 3s forwards;
+    background: rgb(194, 24, 24);
+    border-radius: 4px;
+    color: white;
+    padding: 16px 40px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-400%) rotate(-720deg);
+    }
+
+    to {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+
+    }
+}

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Hi</h2>
+<mat-dialog-content>
+  <p>Please enter the name of the player</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field>
+  <div class="select-img">
+    <img *ngFor="let img of imges" src="../../assets/img/profile/{{ img }}" alt=""
+      [class.selected]="img === selectedImage" (click)="selectImage(img)">
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button  (click)="onNoClick()">No Thanks</button>
+  <button mat-button color="success" [disabled]="name.length === 0 || !selectedImage"
+    [mat-dialog-close]="{ name: name, image: selectedImage }" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

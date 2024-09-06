@@ -1,0 +1,47 @@
+@import '../../styles.scss';
+
+.start-screen {
+    background-color: #404040;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    @include center-flex;
+
+    @media (max-width: 960px) {
+        overflow: hidden;
+    }
+
+    img {
+        height: 100vh;
+
+
+        @media (max-width: 960px) {
+            width: 500px;
+
+        }
+    }
+}
+
+.start-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 40vw;
+        height: auto;
+        cursor: pointer;
+
+        @media (max-width: 960px) {
+            width: 300px;
+
+        }
+
+        &:hover {
+            filter: brightness(1.3);
+        }
+    }
+}

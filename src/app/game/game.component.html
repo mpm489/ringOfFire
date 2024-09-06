@@ -1,0 +1,49 @@
+<div class="game-over" *ngIf="overgameAnimation">
+    <button (click)="restart()" class="btn">RESTART</button>
+    <img src="../../assets/img/gameover.jpg" alt="">
+</div>
+<app-player 
+(click)="editPlayer(i)"
+[name]="player" 
+[profileImage]="game.playerImages[i]"
+[ngStyle]="{'top.px': baseOffset + (i * baseOffset)}" 
+*ngFor="let player of game.players; let i = index;"
+class="position" 
+[playerAvtive]="i == game.currentPlayer">
+</app-player>
+
+<div class="field">
+    <div class="card-stack">
+
+        <img *ngFor="let c of[0,1,2,3,]; let i = index;" [ngStyle]="{'right.px': i * 5}"
+            src="../../assets/img/profile/cards/card_cover.png" alt="">
+
+        <img (click)="takeCard()" class="top-card" style="right: 25px;"
+            src="../../assets/img/profile/cards/card_cover.png" alt="">
+
+        <img class="played-card" *ngFor="let card of game.playedCards"
+            src="../../assets/img/profile/cards/{{ card }}.png" alt="">
+
+        <img *ngIf="pickCardAnimation" class="pick-card" style="right: 25px;"
+            src="../../assets/img/profile/cards/{{ currentCard }}.png" alt="">
+
+    </div>
+</div>
+<app-game-info [card]="currentCard" class="game-info"></app-game-info>
+
+<button color="primary" (click)="openDialog()" mat-fab class="btn-add">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div class="warning" *ngIf="showPlayerLimitMessage">
+    <div class="warning-message">
+        No more players possible!
+    </div>
+</div>
+
+<div class="warning" *ngIf="warningMessage">
+    <div class="warning-message">
+        Please add players first before starting the game!
+    </div>
+</div>
+
